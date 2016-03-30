@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+
+\author{Zachary Vogel}
+\date{\today}
+\title{Notes in ECEN 5623}
+
+\begin{document}
+\maketitle
+
+
+\section*{Announce}
+quiz on Thursday\\
+read chapter 7 for thursday.\\
+homework 2 due tomorrow\\
+quiz 2\\
+
+\section*{Lecture}
+With Anurag\\
+Tim is gone somewhere\\
+
+interrupts that call services\\
+blocking vs interference:\\
+interference is just simply a lower priority thread getting preempted.\\
+blocking is when your thread or process is waiting on a resource.\\
+
+Dm sufficient feasibility:
+\[\frac{C_i}{D_i}+\frac{I_i}{D_i}<1.0\]
+
+Blocking types:\\
+bounded: take into consideration in execution times\\
+unbounded: can't take into account.\\
+
+
+deadlock and priority inversion.\\
+
+deadlock: unbounded\\
+
+watchdog timer: hardware which needs to be reset, look it up\\
+
+unbounded blocking is the real problem\\
+
+this is what we get when task a wants sem x and task b wants sem y.\\
+
+
+
+other situation is priority inversion.\\
+priorities getting inverted because the higher priority task depends on the lower one.\\
+need 3 or more for this to happen.\\
+
+
+
+\end{document}

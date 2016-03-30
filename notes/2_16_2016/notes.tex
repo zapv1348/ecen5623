@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+
+\author{Zachary Vogel}
+\date{\today}
+\title{Notes in ECEN 5623}
+
+\begin{document}
+\maketitle
+
+
+\section*{STuff}
+Homework set 2 due 2/22
+excercise 3 due 3/3
+2/25 quiz.\\
+
+\section*{Dynamic Priority}
+Power PC architecture is pretty common.\\
+
+RM= bunch of blocks fitting in a suitcase.\\
+EDF/LLF = bunch of playdoy in a suitcase.\\
+
+EDF/LLF bound proof.\\
+RM gets used when you are more concerned about safety.\\
+
+best effort and RM most common.\\
+
+4 approaches for software in embedded systems
+\begin{enumerate}
+    \item no software, all hardware or higher someone else
+    \item write all your own.
+    \item Reuse somebody elses code, buy a commercial or open RTOS
+    \item Use a non-RTOS and make it work like an RTOS
+\end{enumerate}
+
+book: theory, then practical.\\
+
+EDF can be bad because you don't know what is going to happen when you fail without intense timing analysis.\\
+harder to debug.\\
+because of this, EDF isn't used as much.\\
+EDF doesn't deal with unpredictability as well as RM.\\
+SCHED\_DEADLINE is a EDF scheduler for linux.\\
+
+
+least laxity.\\
+even more difficult to implement because you have to guess how much execution time is left.\\
+overload is difficult.\\
+
+tend not to be used because of the additional risk.\\
+
+If a system is going to fail and explode anyway, wouldn't EDF or LLF be worth it?\\
+
+For a lightly loaded system (i.e. lots of slack time), RM will generally give the same result as EDF/LLF.\\
+
+The more harmonic something is, the more likely RM, LLF, and EDF are to be the same.\\
+
+next time: applications of RM theory.
+
+
+\end{document}

@@ -1,0 +1,74 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+
+\author{Zachary Vogel}
+\date{\today}
+\title{Notes in ECEN 5623}
+
+\begin{document}
+\maketitle
+
+
+\section*{Bureaucracy}
+Liu and Layland Paper read by tuesday\\
+Chapter 11 in the text.\\
+Saturday at 5pm exercise 1 start.\\
+Exercise 2 starts now.\\
+Quiz 1 next Thursday.
+
+\section*{Lecture}
+Real-time service implementation.\\
+
+Safe Resource Utilization Bound.\\
+
+High-Level Design\\
+Input and Output Hardware design and characterization.\\
+Services: What are they?\\
+System level methodology:\\
+UML, and such.\\
+
+Space Transportation System-shuttle example.\\
+paper by Carlow for exercise 2.\\
+Ascent and entry guidelines\\
+Phases of flight divided into Major modes\\
+each mode has real-time scheduling.\\
+control and sensors in high frequency\\
+navigation in medium frequency\\
+guidance in low frequency\\
+Ask Lucy Pao about this.\\
+
+sirtf caltech. www.sirtf.caltech.edu\\
+A CU example\\
+
+RM assumptions:\\
+All services requested on periodic basis, the period is constant\\
+Completion time < Period\\
+Service Requests are independent (no known phasing)\\
+Run-time is known and deterministic.\\
+
+RM constraints:\\
+Deadline=Period by definition\\
+Fixed Priority, preemptive, run-to-completion scheduling\\
+
+critical instant: longest response time for a service occurs when al system serivces are requested simultaneously\\
+No other shared resources- not in the paper, but it is a key assumption they make\\
+
+derivation of RM LUB for 2 tasks\\
+can you safely exceed the LUB\\
+
+NOte that there can be up to the ciel$T2/T1$ releases of $S1$ in $T2$.\\
+
+
+Next time: finish RM LUB derivation\\
+discuss pitfalls\\
+introduce extensions to overcome pitfalls.\\
+
+
+Quiz will be largely over chapters 1 and 2. Look at methodology.
+
+\end{document}

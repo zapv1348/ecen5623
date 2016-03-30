@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+
+\author{Zahary Vogel}
+\date{\today}
+\title{Notes in ECEN 5623}
+
+\begin{document}
+\maketitle
+
+
+\section*{Day three bureacracy}
+exercise 1 guid on the d2l page. Siewart CH 2.\\
+
+\section*{Lecture}
+review of rate monotonic scheduling example.\\
+rate monotonic upper bound is sufficient not necessary.\\
+least common multiple of periods.\\
+feasible over LCM, feasible over all time\\
+
+\subsection*{Complex Multi-service Systems}
+multiple software services, synchronization and communication between services. Mutliple sensor actuator output interfaces, intermediate IO, shared memory, messaging.\\
+
+multi-service pipelines diagram.\\
+
+real time services, multi-service concurrency (multithreaded prolly)\\
+
+to deal with problems they made real time service and cpu resource management theory.\\
+
+why SW for hard real time systems?\\
+cost, design time, software is easier to update, fpgas are costly, software is easier to fix\\
+asic\\
+
+real time is defined by there being deadline events.\\
+without external events, why is it real time? book writer would argue it isn't\\
+
+\subsection*{Operating System Overview}
+intermediary interface between apps and hardware\\
+facilitates application development\\
+
+file system, scheduler, security, ectetera\\
+
+os comes into existence.\\
+
+structure types, monolithic (unix and linux), microkernel, most modern commercial adopt a hybrid approach.\\
+
+embedded os, RTOS, EOS\\
+another option is super-loop (sicklicle executives), this is okay for simple things\\
+rtos, everything is a task scheduled based on demand.\\
+jitter on response time is easier to control\\
+
+RTOS aims at deterministic foremost, rather than throughput (consistency, reliability)\\
+jitter is a measurement\\
+
+two design approaches, event-driven and time-sharing\\
+event driven(freertos): preemptive task scheduling, higher priority first, process data responsively
+time-sharing(linux): lots of overhead, time-sharing, , tasks scheduled on regular clocked interrupt, round robin, more often switching. smoother multitasking\\
+
+tasks can have 3 states, running, ready, blocked.\\
+task scheduling, preemptive, cooperative, earliest deadline first, usually only one task per CPU at a time\\
+
+RTOS's: lynx os, OSE, windows CE, freertos, arm keil\\
+
+key terms: kernel task, Real time process, context switch, preemption, dispatch, Asymmetric multi-processing(AMP), Symmetric multi-processing(SMP), non-uniform memory access (NUMA), Simultaneous multi-threading (SMT), Flynn's taxonomy\\
+
+Flynn's taxonomy - (single instruction, multi instruction) times (single data, multi-data)\\
+
+taxonomy - method of classification\\
+
+Flynn's computer architecture taxonomy\\
+
+fair vs unfair scheduling: (completely fair scheduler) CFS in linux - fair\\
+
+\end{document}

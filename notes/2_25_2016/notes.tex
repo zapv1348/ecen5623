@@ -1,0 +1,65 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+
+\author{Zachary Vogel}
+\date{\today}
+\title{Notes in ECEN 5623}
+
+\begin{document}
+\maketitle
+
+
+\section*{Quiz today, half lecture}
+The test will be on 3/8 or 3/10 possibly split over both.\\
+Excercise isn't due until Saturday after next.\\
+quiz done
+
+\section*{Lecture}
+deadline monotonic sufficient feasibility:\\
+for all tasks i:
+\[\cfrac{C_i+I_i}{D_i}\leq 1.0\]
+\[I_i=\sum_{j=1}^{i-1}\lceil \cfrac{D_i}{T_j}\rceil C_j\]
+
+improved interference estimation, still not N\&S though:\\
+in the notes\\
+N\&S feasibility tests are $O(N^3)$. proven with some calculus.\\
+
+look up optimization alogrithms for real-time applications.\\
+
+dynamic allocation of new services in fixed priority systems.\\
+requires calculation of new priorities.\\
+
+feasibility test is created as a service in the system.\\
+
+Pathfinder mission is an example of this.\\
+
+EDF sufficient test based on hyper period is:
+\[\sum_{i=1}^m \left (\cfrac{C_i}{T_i}\right )\leq 1\]
+
+blocking is possible any time you have shared memory. Often designing better hardware helps with this.\\
+interrupts and dmas help with many of these problems.\\
+
+sometimes you might have priority inversion and it might be okay because you know how long it lasts.\\
+
+most of the time the first person to get called when something breaks is the real time person.\\
+
+spin-locks are apparently used by linux. limits the amount of time after a blocking situation occurs.\\
+
+priority ceiling protocal. Safe from unbounded inversion because the low priority service inherits the higher priority service priority.\\
+
+priority inversion wasn't really known about until the 80s.\\
+
+
+\textbf{RM vs EDF}:
+paper judgement day vs Giorgio Buttazzo.\\
+pretty complete discussion of the issue.\\
+relative vs absolute time.\\
+
+next timing services
+
+\end{document}

@@ -1,0 +1,140 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+
+\author{Zachary Vogel}
+\date{\today}
+\title{Notes in ECEN 5623}
+
+\begin{document}
+\maketitle
+
+
+\section*{stuff}
+read 8, exercise due on 3/5, exam on Tuesday. ITLL tour at end of class on Thursday.\\
+exam will be closed book.\\
+3/15 form groups for Exercises 5 and 6 and final project.\\
+
+\section*{Lecture}
+known terms:\\
+RTL (register transfer logic), API, Cyclic executive(superloop), atomic operation(disable interrupt, executes, enables interrupts), best effort, binary semaphore, blocking, BSP(board support package), cache hit, canonical service(standard way of writing a service or task), Completion test, context switch, CPI, critical instant, critical section, (D,T anc C)(Deadline, time and computation), Deadline, dispatch, DMA(deadline monotonic access, or direcct memory access), EDF, LLF, FCFS, Feasibility Test, FIFO, Fixed-Priority, Hard Real-time,
+Harmonic, Isochronal, Jiffy, Jitter, Laxity, LCM, LLF, Livelock, Main+ISR, memory-mapped IO, Message queue, mutex semaphore (specifically for locking), necessary and sufficient, Period transform(altering task period to make RM work), POSIX, preemption, Priority, priority ceiling, priority inversion, rate-monotonic, real-time, Rate monotonic analysis (RMA), scheduling point, Semaphore, Service, Shared memory, soft real-time, task, tick, time-slice, timeout, utility curve, wcet\\
+
+Real-time correctness, how to implement RM, what are harmonic service sets, scheduling feasibility test, interference and blocking, utility curves, difference between ceiling protocal and priority inheritance, RMA schedulability test formulation, POSIX RT pthreads and sync, LLF and EDF scheduling policies.\\
+
+be able to:\\
+define and draw utility curves\\
+derive the RM LUB (be able to answer questions about it)\\
+analyze blocking code, including deadlocks\\
+describe a scheduler state machine using POSIX API calls\\
+draw timing diagrams of multi-service systems\\
+derive the DMA schedulability test\\
+Draw timing diagrams to prove feasibility of a service set using RMA, DMA, EDF, or LLF\\
+
+\begin{itemize}
+    \item CH 1: introduction, RT correctness, definitions
+    \item CH 2: system resources, CPU, I/O, memory bound
+    \item CH 3
+    \item CH 4
+    \item CH 5
+    \item CH 6
+    \item Cheddar potentially
+\end{itemize}
+
+know a scheduling statemachine diagram.\\
+ready state= only need CPU\\
+i/o or shared memory= pending\\
+
+Fundamentals of RT analysis:
+\begin{itemize}
+    \item RT correctness= before deadline and correct result
+    \item utility curves for best effort, Hard RT, isochronal RT, and soft RT
+    \item CPU, I/O and memory resource space
+    \item Basic Timing Diagrams
+    \item Theorem 1- RM Least Upper Bound
+    \item Theorem 2 (Lehoczky, Shah, Ding) - if deadlines are met over longest period( or better yet, LCM) from C.I. then system is feasible
+    \item fixed prioirty, preemptive, run-to-completion scheduling
+    \item sufficiency and necessary condition types
+\end{itemize}
+
+deadline monotonic theory
+\begin{itemize}
+    \item differences between this and RM, T$\neq$D, prioirty assignmetn policy, iterative feasibility test
+    \item DM priority assignmetn policy
+    \item simple sufficient feasibility test
+    \item improved (more necessary) feasibility test
+\end{itemize}
+
+RM theory, C=WCET, T=D, critical instant\\
+feasbility test, derivation of 2 task sufficient LUB\\
+scheduling point - O($n^3$), but N\& S, same with completion one.\\
+dynamic priority theories, when to use them\\
+
+Linux and POSIX RT extensions
+\begin{itemize}
+    \item pthread\_create and join
+    \item SCHED\_FIFO, priorities RT Max and min, attributes
+    \item SCHED\_OTHER
+    \item CPU affinity
+    \item real time clock (relative vs absolute time)
+    \item blocking and timeouts, timespec struct, timed wait
+    \item logMsg versus printf, printf i/o deeelays caller and can't be called in kernel/ISR context
+    \item logMsg performs output in slack time via tlogTask and message queue interface
+\end{itemize}
+
+RT sync
+\begin{itemize}
+    \item priority inversion
+    \item unbounded priority inversion
+    \item priority inheritance
+    \item priority ceiling
+    \item necessary 3 conditions for unbounded prio inversion
+        \begin{itemize}
+            \item 3 or more tasks
+            \item H and L tasks involved in mutex
+            \item 1 or more M tasks not involved in mutex cause interference
+        \end{itemize}
+    \item Mars pathfinder story
+        \begin{itemize}
+            \item what went wrong
+            \item why
+            \item how was it fixed
+            \item priority inversion happened
+            \item fixed with patch which did a type of priority inheritance
+        \end{itemize}
+\end{itemize}
+
+LINUX\\
+POSIX RT Extensions
+\begin{itemize}
+    \item Message queues
+        \begin{itemize}
+            \item Priority enqueue and dequeue
+            \item Same priority
+            \item blocking vs non-blocking send and receive
+        \end{itemize}
+    \item REal-time signals won't be questions on this
+        \begin{itemize}
+            \item signals that queue -why?
+            \item passing data- how?
+        \end{itemize}
+    \item real-time interval timers and clocks
+\end{itemize}
+
+Service efficiency concepts\\
+blocking is evil\\
+path length\\
+path execution efficiency\\
+intermediate I/O\\
+overlapping intermediate I/O with CPU\\
+
+CODE WRITTEN ON EXAM NEED NOT COMPILE\\
+
+
+
+
+\end{document}
