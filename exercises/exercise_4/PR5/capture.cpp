@@ -25,9 +25,9 @@
 using namespace cv;
 using namespace std;
 
-#define HRES 160
-#define VRES 120
-#define arrin 0
+#define HRES 1280
+#define VRES 960
+#define arrin 4
 
 // Transform display window
 char timg_window_name[] = "Edge Detector Transform";
@@ -115,7 +115,7 @@ void* CannyThreshold(void* b)
         pthread_mutex_unlock(&windowlock);
         framedt1=curr_frame_time1 - prev_frame_time1;
         prev_frame_time1=curr_frame_time1;
-        if(framedt1>sup[arrin][1]*1000.0/3.0&frame_count1>2)
+        if(framedt1>sup[arrin][0]*1000.0/3.0&frame_count1>2)
         {
             printf("canny failed deadline\n");
         }
@@ -123,7 +123,7 @@ void* CannyThreshold(void* b)
         i++;
     }
     cvDestroyWindow(timg_window_name);
-    if(ave_framedt1>sup[arrin][1]*1000.0/3.0)
+    if(ave_framedt1>sup[arrin][0]*1000.0/3.0)
     {
         printf("average deadline was failed deadline for canny\n");
     }
@@ -192,7 +192,7 @@ void* Eliptical(void * b)
         
         framedt2=curr_frame_time2 - prev_frame_time2;
         prev_frame_time2=curr_frame_time2;
-        if(framedt2>sup[arrin][2]*1000.0/3.0&frame_count2>2)
+        if(framedt2>sup[arrin][1]*1000.0/3.0&frame_count2>2)
         {
             printf("eliptical failed a deadline\n");
         }
@@ -200,7 +200,7 @@ void* Eliptical(void * b)
         i++;
     }
     cvDestroyWindow("Capture Example\n");
-    if(ave_framedt2>sup[arrin][2]*1000.0/3.0)
+    if(ave_framedt2>sup[arrin][1]*1000.0/3.0)
     {
         printf("average deadline was failed deadline for elliptical Hough\n");
     }
@@ -258,15 +258,15 @@ void* Lines_onlines(void * b)
         if (c==27) break;
         framedt3=curr_frame_time3 - prev_frame_time3;
         prev_frame_time3=curr_frame_time3;
-        if(framedt3>sup[arrin][3]*1000.0/3.0&frame_count3>2)
+        if(framedt3>sup[arrin][2]*1000.0/3.0&frame_count3>2)
         {
-            printf("hough line failed deadline\n");
+            printf("hough line failed deadline: time was %f\n",framedt3);
         }
         a[i]=framedt3;
         i++;
     }
     cvDestroyWindow("Capture lines\n"); 
-    if(ave_framedt3>sup[arrin][3]*1000.0/3.0)
+    if(ave_framedt3>sup[arrin][2]*1000.0/3.0)
     {
         printf("average deadline was failed deadline for line Hough\n");
     }

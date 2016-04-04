@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+
+\author{Zachary Vogel}
+\date{\today}
+\title{Notes in ECEN 5623}
+
+\begin{document}
+\maketitle
+
+
+\section*{lecture}
+read chapter 13, lol.\\
+
+Jetson TK-1 multi-core CPU and a GPU\\
+Intel Mica (Many integrated core architecture)\\
+
+i/o interfaces. 10/100 is ethernet.\\
+
+why did we switch from parallel to serial\\
+cost and signal integrity.\\
+
+different types of i/o:
+\begin{itemize}
+    \item word based for registers, and low i/o interfaces
+    \item Block: for fifos, dual port ram, dMA high rate i/o
+    \item system memory map: boot big busses
+\end{itemize}
+
+ethernet has a header and src\\
+nagle algorithm is forceably used by ethernet.\\
+
+need a driver to access memory. Need to tell MMU to reference driver which will present the device as a block of memory to write to.\\
+
+ram at 0.\\
+
+
+Test will be on 
+
+\end{document}

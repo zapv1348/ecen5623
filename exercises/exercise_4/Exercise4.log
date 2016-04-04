@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2015.12.7)  30 MAR 2016 15:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2015.12.7)  31 MAR 2016 14:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -382,27 +382,27 @@ Overfull \hbox (51.03113pt too wide) in paragraph at lines 141--142
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (27.97757pt too wide) in paragraph at lines 165--174
+[5]
+Overfull \hbox (27.97757pt too wide) in paragraph at lines 167--176
  [][] 
  []
 
-[5] [6] (./Exercise4.aux) ) 
+[6] (./Exercise4.aux) ) 
 Here is how much of TeX's memory you used:
  4252 strings out of 493054
  58885 string characters out of 6140586
- 172822 words of memory out of 5000000
+ 169822 words of memory out of 5000000
  7700 multiletter control sequences out of 15000+600000
  14766 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,12n,58p,386b,990s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmtt10.pfb>
-Output written on Exercise4.pdf (6 pages, 1518415 bytes).
+ 38i,12n,58p,504b,990s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmtt10.pfb>
+Output written on Exercise4.pdf (6 pages, 1519814 bytes).
 PDF statistics:
  61 PDF objects out of 1000 (max. 8388607)
  33 compressed objects within 1 object stream

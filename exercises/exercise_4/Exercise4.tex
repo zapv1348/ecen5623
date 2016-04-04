@@ -36,7 +36,7 @@ Here is the dmesg showing the uvc driver pulling up the device.
     \caption{As you can see dmesg shows the uvc driver recognize that the camera was plugged in}
 \end{figure}
 \subsection*{UVC driver verify}
-Here is a screenshot showing that we got the UVC driver installed on teh DE1 board.
+Here is a screenshot showing that we got the UVC driver installed on the DE1 board.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{lsmod_lsusb.png}
@@ -104,17 +104,17 @@ First, we declare some variables. The variable ratio defines the lower:upper thr
 vCapture* capture;
 int dev=0; 
 if(argc > 1)
-    {
-        sscanf(argv[1], "%d", &dev);
-        printf("using %s\n", argv[1]);
-    }
-    else if(argc == 1)
-          printf("using default\n");
-    else
-    {
-        printf("usage: capture [dev]\n");
-        exit(-1);
-    }
+{
+    sscanf(argv[1], "%d", &dev);
+    printf("using %s\n", argv[1]);
+}
+else if(argc == 1)
+    printf("using default\n");
+else
+{
+    printf("usage: capture [dev]\n");
+    exit(-1);
+}
 \end{lstlisting}
 All of this code prepares a capture for the camera.
 
@@ -156,8 +156,10 @@ Then we call a copy to throw the canny results onto the timg\_grad. Finally, we 
 
 \section*{Problem 5}
 \subsection*{Design Concepts}
+For the final part, we wanted to spawn 3 threads that each captured a frame and did a transform. These threads had to implement locking on the capture, and window creation functions because they were accessinsg the same resources. Those being the display manager and capture stream. We also implemented a function to find the standard deviation of the response time to help us get a good understanding of the difference in computation for various amounts of frames. Of course the timing
+was done with the systems real time clock.
 
-\subsection*{Algorithm Analysis}
+\subsection*{Algorithm and Prototype Analysis}
 Here we see the table of normal frame rates on Zach's Archlinux installation, with a 1.8GHz processor, and a built in webcam for the hough transform, the canny interactive and the hough-eliptical transforms.
 
 \begin{table}[H]
@@ -173,10 +175,8 @@ Here we see the table of normal frame rates on Zach's Archlinux installation, wi
     \end{tabular}
 \end{table}
 
-\subsection*{Prototype Analysis}
-
 \subsection*{Final Predictable Response Jitter Analysis}
-
-
+As stated, we calculated the standard deviation for various amounts of frames to get a good grasp on jitter, while also tracking anytime a deadline is missed. The deadlines were set to the times above divided by 3 to account for the extra execution. The problem we ended up finding was that the camera could only output 30fps and the cvQuery function with a mutex locking it only returns 30 frames totale per second. That's because the frame is removed from wherever it is stored when the
+frame is taken, so when one thread gets a frame the next one has to wait for the camera to get another frame. This led to a frame rate of around 10fps for all of the transforms at every resolution. One can see this when executing the code in the PR5 folder submitted with the zip for this exercise. 
 \end{document}
 
